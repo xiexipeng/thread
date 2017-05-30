@@ -1,5 +1,8 @@
 package thread.realize;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -9,7 +12,9 @@ import java.util.concurrent.FutureTask;
 
 public class ThreadTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date d = sdf.parse("");
 		long start = System.currentTimeMillis();
 		System.out.println("主线程开始执行...............");
 		//多线程实现方式1
@@ -46,6 +51,7 @@ class BasicThread1 extends Thread {
 
 	@Override
 	public void run() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			long start = System.currentTimeMillis();
 			Thread.sleep(3000);
