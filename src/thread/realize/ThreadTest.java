@@ -14,22 +14,21 @@ public class ThreadTest {
 
 	public static void main(String[] args) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			Date d = sdf.parse("");
 		long start = System.currentTimeMillis();
 		System.out.println("主线程开始执行...............");
-		//多线程实现方式1
+		// 多线程实现方式1
 		BasicThread1 bt1 = new BasicThread1();
 		bt1.start();
-		//多线程实现方式2
+		// 多线程实现方式2
 		BasicThread2 bt2 = new BasicThread2();
 		Thread t = new Thread(bt2);
 		t.start();
-		//多线程实现方式3
+		// 多线程实现方式3
 		BasicThread3 bt3 = new BasicThread3();
 		FutureTask<Object> task = new FutureTask<Object>(bt3);
 		Thread t2 = new Thread(task);
 		t2.start();
-		//多线程实现方式4
+		// 多线程实现方式4
 		ExecutorService es = Executors.newCachedThreadPool();
 		BasicThread4 bt4 = new BasicThread4();
 		Future<Object> future = es.submit(bt4);
@@ -46,7 +45,7 @@ public class ThreadTest {
 
 }
 
-//继承Thread类实现多线程
+// 继承Thread类实现多线程
 class BasicThread1 extends Thread {
 
 	@Override
@@ -62,7 +61,7 @@ class BasicThread1 extends Thread {
 	}
 }
 
-//实现Runnable接口实现多线程
+// 实现Runnable接口实现多线程
 class BasicThread2 implements Runnable {
 
 	@Override
@@ -78,7 +77,7 @@ class BasicThread2 implements Runnable {
 
 }
 
-//实现Callbale接口实现多线程
+// 实现Callbale接口实现多线程
 class BasicThread3 implements Callable<Object> {
 
 	@Override
@@ -95,7 +94,7 @@ class BasicThread3 implements Callable<Object> {
 
 }
 
-//实现Callable并通过线程池实现多线程
+// 实现Callable并通过线程池实现多线程
 class BasicThread4 implements Callable<Object> {
 
 	@Override

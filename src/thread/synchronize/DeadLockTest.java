@@ -20,8 +20,8 @@ public class DeadLockTest {
 
 class SyncTest implements Runnable {
 
-	static Object o1;
-	static Object o2;
+	private Object o1;
+	private Object o2;
 
 	public SyncTest(Object o1, Object o2) {
 		this.o1 = o1;
